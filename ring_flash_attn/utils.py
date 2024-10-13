@@ -21,7 +21,7 @@ def get_default_args(func):
     return args
 
 
-@torch.jit.script
+# @torch.jit.script
 def _update_out_and_lse(
     out: torch.Tensor,
     lse: torch.Tensor,
@@ -65,7 +65,7 @@ def update_out_and_lse(
     return out, lse
 
 
-@torch.jit.script
+# @torch.jit.script
 def flatten_varlen_lse(lse, cu_seqlens):
     new_lse = []
     for i in range(len(cu_seqlens) - 1):
@@ -74,7 +74,7 @@ def flatten_varlen_lse(lse, cu_seqlens):
     return torch.cat(new_lse, dim=1)
 
 
-@torch.jit.script
+# @torch.jit.script
 def unflatten_varlen_lse(lse, cu_seqlens, max_seqlen: int):
     num_seq = len(cu_seqlens) - 1
     num_head = lse.shape[-2]

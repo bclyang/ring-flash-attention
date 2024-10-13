@@ -39,7 +39,7 @@ def get_half_index(cu_seqlens, *, front: bool):
     return index
 
 
-@torch.jit.script
+# @torch.jit.script
 def get_half_lse(lse, cu_seqlens, *, front: bool):
     if lse.dim() == 2:
         new_lse = torch.empty(
